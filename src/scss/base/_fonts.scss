@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Quattrocento+Sans:wght@400;700&display=swap");
+
+@font-face {
+  font-family: "dap-icon";
+  src: url("/src/assets/fonts/icomoon.eot?erih5v");
+  src: url("/src/assets/fonts/icomoon.eot?erih5v#iefix") format("embedded-opentype"),
+    url("/src/assets/fonts/icomoon.ttf?erih5v") format("truetype"),
+    url("/src/assets/fonts/icomoon.woff?erih5v") format("woff"),
+    url("/src/assets/fonts/icomoon.svg?erih5v#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.dap-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "dap-icon";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 12px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%dap-icon {
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 12px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-accelerator:before {
+  content: "\e900";
+}
+.icon-add-service:before {
+  content: "\e901";
+}
+.icon-add:before {
+  content: "\e902";
+}
+.icon-alerts:before {
+  content: "\e903";
+}
+.icon-alphabetical-down:before {
+  content: "\e904";
+}
+.icon-alphabetical-up:before {
+  content: "\e905";
+}
+.icon-arrow-down:before {
+  content: "\e906";
+}
+.icon-arrow-left:before {
+  content: "\e907";
+}
+.icon-arrow-right:before {
+  content: "\e908";
+}
+.icon-arrow-up:before {
+  content: "\e909";
+}
+.icon-calendar:before {
+  content: "\e90a";
+}
+.icon-change:before {
+  content: "\e90b";
+}
+.icon-chatbot:before {
+  content: "\e90c";
+}
+.icon-check:before {
+  content: "\e90d";
+}
+.icon-choice-multi:before {
+  content: "\e90e";
+}
+.icon-choice-single:before {
+  content: "\e90f";
+}
+.icon-close:before {
+  content: "\e910";
+}
+.icon-column:before {
+  content: "\e911";
+}
+.icon-dashboard:before {
+  content: "\e912";
+}
+.icon-date-and-time:before {
+  content: "\e913";
+}
+.icon-dropdown:before {
+  content: "\e914";
+}
+.icon-edit:before {
+  content: "\e915";
+}
+.icon-email:before {
+  content: "\e916";
+}
+.icon-expand-left:before {
+  content: "\e917";
+}
+.icon-expand-right:before {
+  content: "\e918";
+}
+.icon-home-address:before {
+  content: "\e919";
+}
+.icon-lead-management:before {
+  content: "\e91a";
+}
+.icon-list:before {
+  content: "\e91b";
+}
+.icon-messages:before {
+  content: "\e91c";
+}
+.icon-phone:before {
+  content: "\e91d";
+}
+.icon-platform-assistant:before {
+  content: "\e91e";
+}
+.icon-print:before {
+  content: "\e91f";
+}
+.icon-projects:before {
+  content: "\e920";
+}
+.icon-range:before {
+  content: "\e921";
+}
+.icon-rearrange:before {
+  content: "\e922";
+}
+.icon-search:before {
+  content: "\e923";
+}
+.icon-select:before {
+  content: "\e924";
+}
+.icon-server-maintenance:before {
+  content: "\e925";
+}
+.icon-service:before {
+  content: "\e926";
+}
+.icon-settings:before {
+  content: "\e927";
+}
+.icon-setup-form:before {
+  content: "\e928";
+}
+.icon-spam-buster:before {
+  content: "\e929";
+}
+.icon-switch:before {
+  content: "\e92a";
+}
+.icon-system-update:before {
+  content: "\e92b";
+}
+.icon-telephone:before {
+  content: "\e92c";
+}
+.icon-text-input-long:before {
+  content: "\e92d";
+}
+.icon-text-input-short:before {
+  content: "\e92e";
+}
+.icon-user-name:before {
+  content: "\e92f";
+}
+.icon-web-analytics:before {
+  content: "\e930";
+}

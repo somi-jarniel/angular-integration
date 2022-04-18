@@ -1,0 +1,52 @@
+.filter-wrap {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-bottom: 1px solid $gray-03;
+
+  .filter-option {
+    ul {
+      li {
+        margin: 0px 0.875rem;
+      }
+    }
+    a {
+      padding: 0.5rem 0;
+      color: $gray-05;
+      display: block;
+      position: relative;
+      font-weight: bold;
+      overflow: hidden;
+
+      &:hover,
+      &.active {
+        color: $blue;
+      }
+
+      &.active {
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        background: $blue;
+        bottom: 0px;
+        left: 0;
+        opacity: 0;
+        @include transition(opacity 0.4s cubic-bezier(0.65, 0, 0.35, 1));
+      }
+    }
+
+    label {
+      color: $gray-04;
+      display: inline-block;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,171 @@
+// this is area is for reserved class
+#main-container {
+	background-size: 900px;
+	background-position: -300px;
+	background-attachment: fixed;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clear {
+	&:after {
+		content: "";
+		display: block;
+		float: none;
+		clear: both;
+	}
+}
+
+hr {
+	border: none;
+
+	border-top: 1px solid rgba($black, 0.2);
+}
+
+.container-fluid {
+	max-width: 100%;
+	padding: 0px 80px;
+}
+
+.sec-head {
+	margin-bottom: 30px;
+
+	p {
+		font-size: 28px;
+		text-align: left;
+		font-family: serif;
+	}
+}
+
+.sec-pad {
+	padding: 30px 0 90px 0;
+	position: relative;
+	z-index: 103;
+
+	&.sec-pad-small {
+		padding: 60px 0 90px;
+		margin-bottom: 100px;
+	}
+
+	&.null-pad-bot {
+		padding-bottom: 0 !important;
+	}
+
+	&.null-pad-top {
+		padding-top: 0 !important;
+	}
+}
+
+.table-wrap {
+	display: table;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 3;
+	top: 0;
+
+	.table-cell {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.text-danger {
+	color: $red !important;
+}
+
+.text-warning,
+.text-orange {
+	color: $orange !important;
+}
+
+.text-violet {
+	color: $violet !important;
+}
+
+.no-list-style {
+	list-style-type: none !important;
+	padding-left: 0 !important;
+
+	> li {
+		list-style-type: none;
+	}
+}
+
+.sec-header {
+	padding-bottom: 40px;
+
+	@include breakpoint(desktop) {
+		padding: 0px 30px;
+	}
+
+	@include breakpoint(tablet2) {
+		padding: 0px 20px;
+	}
+
+	@include breakpoint(phablet) {
+		padding: 0px 0px;
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		float: none;
+		clear: both;
+	}
+
+	&.text--center {
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+
+		a.button--primary,
+		a.button--secondary {
+			margin-top: 30px;
+		}
+	}
+
+	h2 {
+		color: $red;
+		margin-bottom: 1rem;
+		font-weight: 900;
+		font-style: italic;
+
+		&.heading-lg {
+			font-size: 48px;
+		}
+
+		@include breakpoint(desktop) {
+			padding-left: 0;
+
+			br {
+				display: none;
+			}
+		}
+
+		.bg-blue &,
+		.bg-orange &,
+		.bg-green & {
+			color: $white;
+			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+		}
+	}
+
+	p {
+		font-size: 1.5rem;
+		line-height: 1.2;
+		font-family: $fontA;
+		font-weight: normal;
+		padding-bottom: 1rem;
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+}

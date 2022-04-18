@@ -1,0 +1,64 @@
+<header>
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-expand-lg bg-white">
+            <a class="navbar-brand" href="#">
+                <div class="logo"><img src="../../../../../assets/images/logo-aboitizPower.png" alt=""></div>
+            </a>
+            <div class="header-search">
+                <form action="">
+                    <div class="form-group bg-light">
+                        <label class="header-search--label" for="formSearch">Search</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light" id="formSearch" placeholder="">
+                            <button class="header-search--filter" type="button">Filter</button>
+                            <!-- <div class="input-group-append">
+
+                            </div> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/workspace" routerLinkActive="active"><fa-icon [icon]="faHome" class="left"></fa-icon>  MY WORKSPACES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><fa-icon [icon]="faUser" class="left"></fa-icon> COLLABORATOR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><fa-icon [icon]="faDatabase" class="left"></fa-icon>  DATASOURCES</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="notifications">
+                <div ngbDropdown placement="bottom-left" class="d-inline-block">
+                    <button class="notification-dropdown" id="dropdownBasic2" ngbDropdownToggle> <span
+                            class="badge badge-danger">5</span></button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                        <button ngbDropdownItem>Action - 1</button>
+                        <button ngbDropdownItem>Another Action</button>
+                        <button ngbDropdownItem>Something else is here</button>
+                    </div>
+                </div>
+            </div>
+            <div class="header-user m-r--md">
+
+                <div ngbDropdown placement="bottom-right" class="d-inline-block">
+                    <button class="user-icon" id="dropdownBasic3" ngbDropdownToggle> </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+                        <button ngbDropdownItem>Logout</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,40 @@
+.card {
+  border-radius: 4px;
+  box-shadow: 0 3px 20px 0 rgba(33, 33, 33, 0.08);
+  border: none;
+
+  .bullet {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+
+  .card-subtitle {
+    font-weight: bold;
+    color: $gray-04;
+  }
+
+  p {
+    color: $gray-04;
+  }
+
+  &.w-ctas {
+    padding-bottom: 2.5rem;
+  }
+
+  .card-ctas {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 0px 1rem;
+    padding-bottom: 0.875rem;
+
+    .dap-icon,
+    .fa {
+      font-size: 1.2rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

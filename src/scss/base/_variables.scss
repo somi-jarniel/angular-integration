@@ -1,0 +1,81 @@
+// include all templated CSS properties here such as font sizes, margin, padding, color, background color, etc
+
+// Class Cheat sheet
+// https://hackerthemes.com/bootstrap-cheatsheet/#form-group
+
+// for width
+$maxWidth: 1180px; // can be use as max width of the container
+
+// for fonts
+$regularFont: "Lato", "Helvetica", "sans-serif"; // default font families and error support for any html tags
+$fontA: "Montserrat", sans-serif;
+
+// for font sizes
+$fontSmall: 12px;
+$fontMedium: 14px;
+$fontLarge: 16px;
+$fontxLarge: 18px;
+$fontxxLarge: 20px;
+
+// for colors
+$red: #ea1822;
+$orange: #ff9d00;
+$darkOrange: #ee6730;
+$yellow: #ffea28;
+$olive: #b5cc18;
+$green: #39a14a;
+$darkgreen: #087e42;
+$teal: #058fa7;
+$blue: #2486db;
+$lightblue: #f5fcff;
+$violet: #9d5fd1;
+$pink: #e03997;
+$brown: #a5673f;
+$gold: #e8b860;
+$gray-01: #f7f7f7;
+$gray-02: #f8f8f8;
+$gray-03: #dddddd;
+$gray-04: #b1b1b1;
+$gray-05: #818181;
+$gray-06: #212121;
+$black: #000000;
+$white: #ffffff;
+
+/* Colors */
+$brandColor: $blue;
+$primaryColor: $brandColor;
+$secondaryColor: $orange;
+$defaultColor: $gray-06;
+
+$successColor: $green;
+$infoColor: $brandColor;
+$warningColor: $yellow;
+$dangerColor: $red;
+
+$lightBg: $gray-01;
+$grayBg: $gray-02;
+$darkBg: $black;
+
+// for margin and padding
+$spaceOne: 10px;
+$spaceTwo: 20px;
+$spaceThree: 30px;
+$spaceFour: 40px;
+$spaceFive: 50px;
+
+// for image sprite
+//$imgSprite: url('');
+
+%icon-propelrr {
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

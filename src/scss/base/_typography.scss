@@ -1,0 +1,108 @@
+// includes all tags for paragraphs and titles such as header, p, span
+h1,
+.h1 {
+	font-size: 2.375rem; /** 38;x **/
+	font-family: $regularFont;
+	font-weight: bold;
+	line-height: 1;
+
+	@include breakpoint(phablet) {
+		font-size: 2.5rem;
+	}
+}
+
+h2,
+.h2 {
+	font-size: 1.75rem; /** 28px **/
+	font-family: $regularFont;
+	font-weight: bold;
+	line-height: 1;
+	letter-spacing: 1.1px;
+}
+
+h3,
+.h3 {
+	font-size: 1.25rem; /** 20px **/
+	font-family: $regularFont;
+	font-weight: bold;
+	line-height: 1;
+}
+
+h4,
+.h4 {
+	font-size: 1.125rem; /** 18px **/
+	font-family: $regularFont;
+	font-weight: bold;
+	line-height: 1;
+}
+
+h5,
+.h5 {
+	font-size: 1rem; /** 16px **/
+	font-family: $regularFont;
+	font-weight: bold;
+	line-height: 1;
+
+	@include breakpoint(mobile2) {
+		font-size: 1.3rem;
+	}
+}
+
+h6,
+.h6 {
+	font-size: 0.875rem; /** 14px **/
+	font-family: $regularFont;
+	font-weight: bold;
+	line-height: 1;
+
+	@include breakpoint(mobile2) {
+		font-size: 1rem;
+	}
+}
+
+pre {
+	font-size: 1rem;
+}
+
+em {
+	font-style: italic !important;
+}
+
+.text--center {
+	text-align: center;
+}
+
+.text--right {
+	text-align: right;
+}
+
+.tt--uppercase {
+	text-transform: uppercase;
+}
+
+.text-gray-05 {
+	color: $gray-05;
+}
+
+.text-gray-04 {
+	color: $gray-04;
+}
+
+.text-gray-03 {
+	color: $gray-03;
+}
+
+.ng-fa-icon {
+	position: relative;
+	top: -2px;
+	display: inline-block;
+	vertical-align: middle;
+
+	&.right {
+		margin-left: 7px;
+	}
+
+	&.left {
+		margin-right: 7px;
+	}
+}

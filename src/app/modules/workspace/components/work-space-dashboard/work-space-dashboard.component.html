@@ -1,0 +1,321 @@
+<div id="main-wrapper" class="">
+  <div class="container-fluid">
+    <app-breadcrumbs></app-breadcrumbs>
+
+
+    <div class="page-cta">
+      <div class="row no-gutters">
+        <div class="col-12 col-sm-6 col-md-8">
+          <h1 class="h1">{{pageTitle}}</h1>
+        </div>
+        <div class="col-6 col-md-4 text-right d-flex justify-content-sm-end">
+          <button type="button" class="btn btn-primary" (click)="openModal()"><fa-icon [icon]="faPlus" class="left"></fa-icon> Create
+            Workspace</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-wrap">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="filter-option d-flex align-items-center">
+            <label for="">View By</label>
+            <ul class="flex">
+              <li><a [ngClass]="{'active': view === 'card'}" (click)="view='card'">Grid View</a></li>
+              <li><a [ngClass]="{'active': view === 'list'}" (click)="view='list'">List View</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="filter-option d-flex align-items-center">
+            <label for="">Sort By</label>
+            <ul class="flex">
+              <li><a href="#">All</a></li>
+              <li><a href="#">Newest</a></li>
+              <li><a href="#">Oldest</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="filter-option d-flex align-items-center justify-content-end">
+            <label for="">Showing 1-50 of 100</label>
+            <ul class="flex">
+              <li><a href="#">Prev</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template [ngIf]="view == 'card'" [ngIfElse]="list">
+      <div class="column--4  m-t--md">
+        <ul class="flex">
+          <li class="card w-ctas">
+            <button class="bullet vertical">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div class="card-body">
+              <h3 class="card-title h3">Report-Monthly</h3>
+              <h6 class="card-subtitle mb-2 text-warning"><em> Updated 2/22/2021</em></h6>
+              <p class="card-text">
+                Some quick example text to build on the card title
+                and make up the bulk of the card's content.
+              </p>
+
+              <div class="card-ctas">
+                <a href="#!" class="card-link text-violet"><fa-icon [icon]="faDatabase" class="left"></fa-icon></a>
+                <a href="#!" class="card-link text-orange"><fa-icon [icon]="faUser" class="left"></fa-icon></a>
+                <a href="#!" class="card-link fr">Open Workspace <i class="fa fa-angle-right right"></i></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="card w-ctas">
+            <button class="bullet vertical">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div class="card-body">
+              <h3 class="card-title h3">Report-Monthly</h3>
+              <h6 class="card-subtitle mb-2 text-warning"><em> Updated 2/22/2021</em></h6>
+              <p class="card-text">
+                Some quick example text to build on the card title
+                and make up the bulk of the card's content.
+              </p>
+              <div class="card-ctas">
+                <a href="#!" class="card-link text-violet">
+                  <fa-icon [icon]="faDatabase" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link text-orange">
+                  <fa-icon [icon]="faUser" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link fr">Open Workspace <i class="fa fa-angle-right right"></i></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="card w-ctas">
+
+            <div class="card-body">
+              <h3 class="card-title h3">Report-Monthly</h3>
+              <h6 class="card-subtitle mb-2 "> Updated 2/22/2021</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title
+                and make up the bulk of the card's content.
+              </p>
+              <div class="card-ctas">
+                <a href="#!" class="card-link text-violet">
+                  <fa-icon [icon]="faDatabase" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link text-orange">
+                  <fa-icon [icon]="faUser" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link fr">Open Workspace <i class="fa fa-angle-right right"></i></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="card w-ctas">
+
+            <div class="card-body">
+              <h3 class="card-title h3">Report-Monthly</h3>
+              <h6 class="card-subtitle mb-2"> Updated 2/22/2021</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title
+                and make up the bulk of the card's content.
+              </p>
+              <div class="card-ctas">
+                <a href="#!" class="card-link text-violet">
+                  <fa-icon [icon]="faDatabase" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link text-orange">
+                  <fa-icon [icon]="faUser" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link fr">Open Workspace <i class="fa fa-angle-right right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="card w-ctas">
+
+            <div class="card-body">
+              <h3 class="card-title h3">Report-Monthly</h3>
+              <h6 class="card-subtitle mb-2"> Updated 2/22/2021</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title
+                and make up the bulk of the card's content.
+              </p>
+
+              <div class="card-ctas">
+                <a href="#!" class="card-link text-violet">
+                  <fa-icon [icon]="faDatabase" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link text-orange">
+                  <fa-icon [icon]="faUser" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link fr">Open Workspace <i class="fa fa-angle-right right"></i></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="card w-ctas">
+
+            <div class="card-body">
+              <h3 class="card-title h3">Report-Monthly</h3>
+              <h6 class="card-subtitle mb-2"> Updated 2/22/2021</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title
+                and make up the bulk of the card's content.
+              </p>
+              <div class="card-ctas">
+                <a href="#!" class="card-link text-violet">
+                  <fa-icon [icon]="faDatabase" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link text-orange">
+                  <fa-icon [icon]="faUser" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link fr">Open Workspace <i class="fa fa-angle-right right"></i></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="card w-ctas">
+
+            <div class="card-body">
+              <h3 class="card-title h3">Report-Monthly</h3>
+              <h6 class="card-subtitle mb-2"> Updated 2/22/2021</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title
+                and make up the bulk of the card's content.
+              </p>
+              <div class="card-ctas">
+                <a href="#!" class="card-link text-violet"><i class="fa fa-database left"></i></a>
+                <a href="#!" class="card-link text-orange"><i class="fa fa-user left"></i></a>
+                <a href="#!" class="card-link fr">Open Workspace <i class="fa fa-angle-right right"></i></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="card w-ctas">
+
+            <div class="card-body">
+              <h3 class="card-title h3">Report-Monthly</h3>
+              <h6 class="card-subtitle mb-2"> Updated 2/22/2021</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title
+                and make up the bulk of the card's content.
+              </p>
+              <div class="card-ctas">
+                <a href="#!" class="card-link text-violet">
+                  <fa-icon [icon]="faDatabase" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link text-orange">
+                  <fa-icon [icon]="faUser" class="left"></fa-icon>
+                </a>
+                <a href="#!" class="card-link fr">Open Workspace <i class="fa fa-angle-right right"></i></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="progress m-t--md">
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10"
+             aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </ng-template>
+
+    <ng-template #list>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col" class="tt--uppercase ">Last Update</th>
+          <th scope="col" class="tt--uppercase ">Name</th>
+          <th scope="col" class="tt--uppercase ">Description</th>
+          <th scope="col" class="text-center tt--uppercase ">Datasources</th>
+          <th scope="col" class="text-center tt--uppercase ">Collaborators</th>
+          <th scope="col" class="text-center tt--uppercase ">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let workspace of workspaces; index as i">
+          <td data-id="{{ i + 1 }}" scope="row" [ngClass]="{'text-orange': i < 3}">
+            <span *ngIf="i < 3"> <i class="fa fa-exclamation-circle right"></i></span>
+            {{ workspace.lastupdate}}
+          </td>
+          <td>{{ workspace.name }}</td>
+          <td class="text-gray-05">{{ workspace.description }}</td>
+          <td class="text-center text-violet"><i class="fa fa-database left "></i> {{ workspace.datasource
+            }} <strong>3</strong></td>
+          <td class="text-center"><i class="fa fa-user left"></i> {{ workspace.collabator }}</td>
+          <td>
+            <button class="btn-plain">
+              <strong>More</strong>
+              <span class="bullet">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget
+      quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet
+      rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget
+      quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet
+      rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget
+      quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet
+      rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget
+      quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet
+      rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget
+      quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet
+      rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget
+      quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet
+      rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

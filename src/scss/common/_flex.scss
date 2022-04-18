@@ -1,0 +1,83 @@
+
+/** == FLEX == **/
+.flex {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    // align-items: flex-start;
+    justify-content: flex-start;
+    list-style-type: none;
+
+    
+    &.flex-direction-column { flex-direction: column; }
+    &.flex-wrap-nowrap { flex-wrap: nowrap; }
+    &.flex-justify-start { justify-content: flex-start; }
+    &.flex-justify-end { justify-content: flex-end; }
+    &.flex-justify-center { justify-content: center; }
+    &.flex-justify-between { justify-content: space-between; }
+    &.flex-align-center { align-items: center; }
+    &.flex-align-end { align-items: flex-end; } 
+    &.flex-align-stretch { align-items: stretch; }
+}
+
+// Reset
+.no-flex{
+	display: inline-block !important;
+}
+
+
+
+
+.flex-list-table  {
+    display: table;
+    width: 100%;  /* aligns all child elements (flex items) in a row */
+
+    > * {
+        display: table-row;
+    }
+
+    &--header {
+
+        font-weight: bold;
+        text-align: left;
+        background: #13a0f0;
+        color: #ffffff;
+    }
+
+    &--col {
+        display: table-cell;        /* distributes space on the line equally among items */
+        padding: 6px 15px;
+        border: 1px solid #ccc;
+
+        + .flex-list-table--col {
+            border-left: none;
+            border-bottom: none;
+        }
+
+    }
+
+
+    &--row {
+
+        .flex-list-table--col {
+            border-bottom: none;
+        }
+
+        &:last-child {
+
+            .flex-list-table--col {
+                border-bottom: 1px solid #ccc;
+            }
+        }
+
+        
+    }
+}
+

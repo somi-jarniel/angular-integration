@@ -1,0 +1,23 @@
+.table {
+  > :not(:first-child) {
+    border-top: none;
+  }
+  tr {
+    th,
+    td {
+      padding-left: 1.75rem;
+      padding-right: 1.75rem;
+    }
+
+    td {
+      background: $white;
+      border: 1px solid $gray-02;
+    }
+
+    th {
+      color: $gray-05;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+  }
+}

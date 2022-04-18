@@ -1,0 +1,35 @@
+.modal.fade {
+
+	.modal-dialog {
+		
+
+		.modal-content {
+			transform: translate(0, 0) !important;
+			@include transition(all 0.4s 0.4s ease);
+		}
+	}
+}
+
+.modal-dialog {
+
+    &.modal-whole {
+    	max-height: 100vh;
+		margin: 0;
+		float: right;
+		width: 480px;
+		
+
+		.modal-content {
+			height: 100vh;
+			max-height: 100vh;
+			border: none;
+			border-radius: 0;
+			transform: translate(100%, 0) !important;
+
+			.component-host-scrollable {
+				height: 100vh;
+			}
+		}
+  	}
+}
+

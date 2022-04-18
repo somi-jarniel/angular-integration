@@ -1,0 +1,15 @@
+.breadcrumb {
+  padding: 20px 0 10px;
+  background: transparent;
+  a {
+    color: $gray-04;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    color: $gray-04;
+  }
+}
