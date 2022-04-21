@@ -1,0 +1,29 @@
+<!-- Default form login -->
+<form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+
+    <p class="h4 mb-4">Register</p>
+
+    <!-- First Name -->
+    <input type="text" formControlName="first_name" id="defaultRegisterFormFirstName" class="form-control mb-4" placeholder="First Name">
+
+    <!-- Last Name -->
+    <input type="text" formControlName="last_name" id="defaultRegisterFormLastName" class="form-control mb-4" placeholder="Last Name">
+  
+    <!-- Mobile No -->
+    <input type="text" formControlName="mobile_no" id="defaultRegisterFormMobileNo" class="form-control mb-4" placeholder="Mobile No">
+
+    <!-- Username -->
+    <input type="text" formControlNmae="username" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+
+    <!-- Email -->
+    <input type="email" formControlName="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+  
+    <!-- Password -->
+    <input type="password"  formControlName="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password">
+  
+    <!-- Register button -->
+    <button type="submit" class="my-4" type="submit">Register</button>
+  
+  </form>
+  <!-- Default form login -->
+  

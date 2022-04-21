@@ -4,26 +4,17 @@ import {Observable, throwError} from "rxjs";
 import {TokenService} from "./token.service";
 import {catchError, tap} from "rxjs/operators";
 import {LoginModel} from "../../shared/models/login.model";
+import { RegisterModel } from "../../shared/models/register.model";
 import { environment } from "../../../../environments/environment";
 import {CipherService} from "./cipher.service";
+import { AuthService } from "./auth.service";
 
-const GENERIC_USERNAME = environment.genericUsername;
-const GENERIC_PASSWORD = environment.genericPassword;
-const OAUTH_CLIENT = environment.clientId;
-const OAUTH_SECRET = environment.clientSecret;
 const API_URL = environment.apiURL;
-
-const HTTP_OPTIONS = {
-  headers: new HttpHeaders({
-    'Content-Type' : 'application/x-www-form-urlencoded',
-    'Authorization':  'Basic ' + btoa(OAUTH_CLIENT + ':' + OAUTH_SECRET)
-  })
-};
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class LoginService {
 
   redirectUrl = '';
   private static handleError(error: HttpErrorResponse): any {
@@ -39,41 +30,46 @@ export class AuthService {
     console.log(message);
   }
 
-  constructor(private http:HttpClient, private tokenService:TokenService, private cipherService: CipherService) {}
+  constructor(
+    private http:HttpClient, private tokenService:TokenService, 
+    private cipherService: CipherService, private authService:AuthService) {}
 
-  bearer(): Observable<any> {
+  login(loginModel: LoginModel): Observable<any> {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
+    // attempt to get bearer token here
     const body = new HttpParams()
-      .set('username', encodeURIComponent(GENERIC_USERNAME))
-      .set('password', encodeURIComponent(GENERIC_PASSWORD))
-      .set('grant_type', 'password')
+      .set('username', this.cipherService.encrypt(loginModel.username))
+      .set('password', this.cipherService.encrypt(loginModel.password));
 
-    return this.http.post<any>(API_URL+ 'oauth/token', body, HTTP_OPTIONS)
+    return this.http.post<any>(API_URL+ 'api/client/login', body, {
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/x-www-form-urlencoded'
+      })
+    })
       .pipe(tap(res=>{
           this.tokenService.saveToken(res.access_token);
           this.tokenService.saveRefreshToken(res.refresh_token);
-        }),catchError(AuthService.handleError)
+        }),catchError(LoginService.handleError)
       );
   }
 
-  refreshToken(refreshData: any): Observable<any> {
+  register(registerModel: RegisterModel): Observable<any> {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
     const body = new HttpParams()
-      .set('refresh_token', refreshData.refresh_token)
-      .set('grant_type', 'refresh_token')
+      .set('fisrt_name', this.cipherService.encrypt(registerModel.firstName))
+      .set('last_name', this.cipherService.encrypt(registerModel.lastName))
+      .set('mobile_no', this.cipherService.encrypt(registerModel.mobileNo))
+      .set('email', this.cipherService.encrypt(registerModel.email))
+      .set('username', this.cipherService.encrypt(registerModel.username))
+      .set('password', this.cipherService.encrypt(registerModel.password));
 
-    return this.http.post<any>(API_URL+ 'oauth/token', body, HTTP_OPTIONS)
+    return this.http.post<any>(API_URL+ 'api/client/register', body, {})
       .pipe(tap(res=>{
           this.tokenService.saveToken(res.access_token);
           this.tokenService.saveRefreshToken(res.refresh_token);
-        }),catchError(AuthService.handleError)
+        }),catchError(LoginService.handleError)
       );
-  }
-
-  logout(): void {
-    this.tokenService.removeToken();
-    this.tokenService.removeRefreshToken();
   }
 }
