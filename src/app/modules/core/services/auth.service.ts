@@ -6,6 +6,7 @@ import {catchError, tap} from "rxjs/operators";
 import {LoginModel} from "../../shared/models/login.model";
 import { environment } from "../../../../environments/environment";
 import {CipherService} from "./cipher.service";
+import { HttpEncoderService } from "./http-encoder.service";
 
 const GENERIC_USERNAME = environment.genericUsername;
 const GENERIC_PASSWORD = environment.genericPassword;
@@ -44,9 +45,9 @@ export class AuthService {
   bearer(): Observable<any> {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
-    const body = new HttpParams()
-      .set('username', encodeURIComponent(GENERIC_USERNAME))
-      .set('password', encodeURIComponent(GENERIC_PASSWORD))
+    const body = new HttpParams({ encoder: new HttpEncoderService() })
+      .set('username', GENERIC_USERNAME)
+      .set('password', GENERIC_PASSWORD)
       .set('grant_type', 'password')
 
     return this.http.post<any>(API_URL+ 'oauth/token', body, HTTP_OPTIONS)
