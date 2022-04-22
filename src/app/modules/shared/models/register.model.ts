@@ -36,7 +36,7 @@ export class RegisterModel {
     this._firstName = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
   }
 
-  get lasttName(): string {
+  get lastName(): string {
     return this._lastName;
   }
 
