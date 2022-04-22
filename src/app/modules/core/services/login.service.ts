@@ -8,7 +8,6 @@ import { RegisterModel } from "../../shared/models/register.model";
 import { environment } from "../../../../environments/environment";
 import {CipherService} from "./cipher.service";
 import { AuthService } from "./auth.service";
-import { HttpEncoderService } from "./http-encoder.service";
 
 const API_URL = environment.apiURL;
 
