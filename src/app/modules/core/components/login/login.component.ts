@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     let values = this.loginForm.value;
 
     let loginModel: LoginModel = new LoginModel(values.username, values.password);
+    
     this.loginService.login(loginModel)
       .subscribe(() => {
         this.isLoadingResults = false;

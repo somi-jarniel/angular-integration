@@ -13,16 +13,16 @@
     <input type="text" formControlName="mobile_no" id="defaultRegisterFormMobileNo" class="form-control mb-4" placeholder="Mobile No">
 
     <!-- Username -->
-    <input type="text" formControlNmae="username" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+    <input type="text" formControlName="username" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
 
     <!-- Email -->
     <input type="email" formControlName="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
   
     <!-- Password -->
-    <input type="password"  formControlName="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password">
+    <input type="password" formControlName="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password">
   
     <!-- Register button -->
-    <button type="submit" class="my-4" type="submit">Register</button>
+    <button type="submit" [disabled]="!registerForm.valid" class="my-4" type="submit">Register</button>
   
   </form>
   <!-- Default form login -->

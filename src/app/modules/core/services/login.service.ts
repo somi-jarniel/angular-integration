@@ -2,12 +2,13 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {TokenService} from "./token.service";
-import {catchError, tap} from "rxjs/operators";
+import {catchError, mergeMap, tap} from "rxjs/operators";
 import {LoginModel} from "../../shared/models/login.model";
 import { RegisterModel } from "../../shared/models/register.model";
 import { environment } from "../../../../environments/environment";
 import {CipherService} from "./cipher.service";
 import { AuthService } from "./auth.service";
+import { HttpEncoderService } from "./http-encoder.service";
 
 const API_URL = environment.apiURL;
 
@@ -37,39 +38,66 @@ export class LoginService {
   login(loginModel: LoginModel): Observable<any> {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
-    // attempt to get bearer token here
-    const body = new HttpParams()
-      .set('username', this.cipherService.encrypt(loginModel.username))
-      .set('password', this.cipherService.encrypt(loginModel.password));
+    
+    const body = {
+      'username': this.cipherService.encrypt(loginModel.username),
+      'password': this.cipherService.encrypt(loginModel.password)
+    };
 
-    return this.http.post<any>(API_URL+ 'api/client/login', body, {
-      headers: new HttpHeaders({
-        'Content-Type' : 'application/x-www-form-urlencoded'
-      })
-    })
+    const bearer = this.authService.guestToken();
+
+    return bearer.pipe(mergeMap(res => {
+      return this.http.post<any>(API_URL+ 'api/client/login', body, {})
       .pipe(tap(res=>{
-          this.tokenService.saveToken(res.access_token);
-          this.tokenService.saveRefreshToken(res.refresh_token);
-        }),catchError(LoginService.handleError)
-      );
+            this.tokenService.saveToken(res.access_token);
+            this.tokenService.saveTokenType(res.token_type);
+            this.tokenService.saveRefreshToken(res.refresh_token);
+          }),catchError(LoginService.handleError)
+        );
+    }));
   }
 
   register(registerModel: RegisterModel): Observable<any> {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
-    const body = new HttpParams()
-      .set('fisrt_name', this.cipherService.encrypt(registerModel.firstName))
-      .set('last_name', this.cipherService.encrypt(registerModel.lastName))
-      .set('mobile_no', this.cipherService.encrypt(registerModel.mobileNo))
-      .set('email', this.cipherService.encrypt(registerModel.email))
-      .set('username', this.cipherService.encrypt(registerModel.username))
-      .set('password', this.cipherService.encrypt(registerModel.password));
 
-    return this.http.post<any>(API_URL+ 'api/client/register', body, {})
+    const body = {
+      'first_name': this.cipherService.encrypt(registerModel.firstName),
+      'last_name': this.cipherService.encrypt(registerModel.lastName),
+      'mobile_no': this.cipherService.encrypt(registerModel.mobileNo),
+      'email': this.cipherService.encrypt(registerModel.email),
+      'username': this.cipherService.encrypt(registerModel.username),
+      'password': this.cipherService.encrypt(registerModel.password)
+    };
+
+    const bearer = this.authService.guestToken();
+
+    return bearer.pipe(mergeMap(res => {
+      return this.http.post<any>(API_URL+ 'api/client/register', body, {})
       .pipe(tap(res=>{
-          this.tokenService.saveToken(res.access_token);
-          this.tokenService.saveRefreshToken(res.refresh_token);
-        }),catchError(LoginService.handleError)
-      );
+            this.tokenService.saveToken(res.access_token);
+            this.tokenService.saveTokenType(res.token_type);
+            this.tokenService.saveRefreshToken(res.refresh_token);
+          }),catchError(LoginService.handleError)
+        );
+    }));
+  }
+
+  verify(): Observable<any> {
+    let bearer = this.authService.guestToken();
+
+    return bearer.pipe(mergeMap(res => {
+      return this.http.post<any>(API_URL+ 'api/client/verify', {}, {
+        headers: new HttpHeaders({
+          'Content-Type' : 'application/x-www-form-urlencoded',
+          'Authorization' : 'Bearer ' + res.access_token
+        })
+      }).pipe(tap(res=>{
+            this.tokenService.saveToken(res.access_token);
+            this.tokenService.saveTokenType(res.token_type);
+            this.tokenService.saveRefreshToken(res.refresh_token);
+          }),catchError(LoginService.handleError)
+        );
+    }));
   }
 }

@@ -3,7 +3,6 @@ import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from "@angular/c
 import {Observable, throwError} from "rxjs";
 import {TokenService} from "./token.service";
 import {catchError, tap} from "rxjs/operators";
-import {LoginModel} from "../../shared/models/login.model";
 import { environment } from "../../../../environments/environment";
 import {CipherService} from "./cipher.service";
 import { HttpEncoderService } from "./http-encoder.service";
@@ -42,7 +41,7 @@ export class AuthService {
 
   constructor(private http:HttpClient, private tokenService:TokenService, private cipherService: CipherService) {}
 
-  bearer(): Observable<any> {
+  guestToken(): Observable<any> {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
     const body = new HttpParams({ encoder: new HttpEncoderService() })
@@ -53,6 +52,7 @@ export class AuthService {
     return this.http.post<any>(API_URL+ 'oauth/token', body, HTTP_OPTIONS)
       .pipe(tap(res=>{
           this.tokenService.saveToken(res.access_token);
+          this.tokenService.saveTokenType(res.token_type);
           this.tokenService.saveRefreshToken(res.refresh_token);
         }),catchError(AuthService.handleError)
       );
@@ -68,6 +68,7 @@ export class AuthService {
     return this.http.post<any>(API_URL+ 'oauth/token', body, HTTP_OPTIONS)
       .pipe(tap(res=>{
           this.tokenService.saveToken(res.access_token);
+          this.tokenService.saveTokenType(res.token_type);
           this.tokenService.saveRefreshToken(res.refresh_token);
         }),catchError(AuthService.handleError)
       );

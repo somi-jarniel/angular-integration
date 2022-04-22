@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {AuthService} from "../../services/auth.service";
+import { LoginService } from '../../services/login.service';
 import {Router} from "@angular/router";
 import { RegisterModel } from 'src/app/modules/shared/models/register.model';
 
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   isLoadingResults = false;
 
   constructor(
-    private authService: AuthService,
+    private loginService: LoginService,
     private router: Router,
     private formBuilder: FormBuilder
   ) { }
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onFormsubmit(): void {
+  onFormSubmit(): void {
     this.isLoadingResults = true;
     let values = this.registerForm.value;
 
@@ -44,13 +44,14 @@ export class RegisterComponent implements OnInit {
       values.username,
       values.password
     );
-    // this.authService.register(registerModel)
-    //   .subscribe(() => {
-    //     this.isLoadingResults = false;
-    //     // this.router.navigate(['/workspace']).then(_ => console.log('logged in successfully'));
-    //   }, error => {
-    //     console.log(error);
-    //     this.isLoadingResults = false;
-    //   });
+    
+    this.loginService.register(registerModel)
+      .subscribe(() => {
+        this.isLoadingResults = false;
+        // this.router.navigate(['/verify']).then(_ => console.log('logged in successfully'));
+      }, error => {
+        console.log(error);
+        this.isLoadingResults = false;
+      });
   }
 }
