@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
     this.loginService.register(registerModel)
       .subscribe(() => {
         this.isLoadingResults = false;
-        // this.router.navigate(['/verify']).then(_ => console.log('logged in successfully'));
+        this.router.navigate(['/verify-registration?email='+values.email]);
       }, error => {
         console.log(error);
         this.isLoadingResults = false;
