@@ -95,4 +95,9 @@ export class LoginService {
         );
     }));
   }
+
+  logout(): void {
+    this.tokenService.removeToken();
+    this.tokenService.removeRefreshToken();
+  }
 }

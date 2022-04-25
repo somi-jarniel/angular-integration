@@ -73,9 +73,4 @@ export class AuthService {
         }),catchError(AuthService.handleError)
       );
   }
-
-  logout(): void {
-    this.tokenService.removeToken();
-    this.tokenService.removeRefreshToken();
-  }
 }
