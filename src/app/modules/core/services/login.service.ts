@@ -96,6 +96,20 @@ export class LoginService {
     }));
   }
 
+  resendVerificationEmail(email: string): Observable<any> {
+    const bearer = this.authService.guestToken();
+
+    return bearer.pipe(mergeMap(res => {
+      return this.http.post<any>(API_URL + 'api/client/verify/token/generate', {
+        email: this.cipherService.encrypt(email)
+      }, {})
+        .pipe(tap(res => {
+          
+        }), catchError(LoginService.handleError)
+        );
+    }));
+  }
+
   logout(): void {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();

@@ -54,4 +54,16 @@ export class VerifyRegisterComponent implements OnInit {
         this.isLoadingResults = false;
       });
   }
+
+  resendVerificationEmail(): void {
+    this.isLoadingResults = true;
+    let values = this.verifyForm.value;
+
+    this.loginService.resendVerificationEmail(values.email)
+    .subscribe(() => {
+      this.isLoadingResults = false;
+    }, error => {
+      this.isLoadingResults = false;
+    });
+  }
 }

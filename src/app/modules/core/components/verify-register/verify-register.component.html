@@ -9,6 +9,10 @@
     <!-- Password -->
     <input type="text"  formControlName="token"   id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Verification Code">
   
+    <div>
+      Did not receive any emai? Request another code <a style="color: #7c69ef" (click)="resendVerificationEmail()">here.</a>
+    </div>
+
     <!-- Sign in button -->
     <button type="submit" [disabled]="!verifyForm.valid" class="my-4" type="submit">Verify</button>
   
