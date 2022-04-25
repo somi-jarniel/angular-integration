@@ -31,7 +31,7 @@ export class VerifyRegisterComponent implements OnInit {
       }
     });
     this.verifyForm = this.formBuilder.group({
-      'email': [email, Validators.required],
+      'email': [email, [Validators.required, Validators.email]],
       'token': [null, Validators.required]
     });
   }
