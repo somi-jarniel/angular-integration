@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from '../../services/login.service';
 import {Router} from "@angular/router";
 import { RegisterModel } from 'src/app/modules/shared/models/register.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   isLoadingResults = false;
 
   constructor(
-    private loginService: LoginService,
+    private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder
   ) { }
@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
       values.password
     );
     
-    this.loginService.register(registerModel)
+    this.authService.register(registerModel)
       .subscribe(() => {
         this.isLoadingResults = false;
         this.router.navigate(['/verify-registration?email='+values.email]);

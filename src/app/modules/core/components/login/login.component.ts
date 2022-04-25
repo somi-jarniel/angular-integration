@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { LoginService } from '../../services/login.service';
 import {Router} from "@angular/router";
 import {LoginModel} from "../../../shared/models/login.model";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   isLoadingResults = false;
 
   constructor(
-    private loginService: LoginService,
+    private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder) {
   }
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
     let loginModel: LoginModel = new LoginModel(values.username, values.password);
     
-    this.loginService.login(loginModel)
+    this.authService.login(loginModel)
       .subscribe(() => {
         this.isLoadingResults = false;
         this.router.navigate(['/workspace']).then(_ => console.log('logged in successfully'));

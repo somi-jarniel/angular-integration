@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { tap } from 'rxjs/operators';
 import { VerifyRegistrationModel } from 'src/app/modules/shared/models/verify-registration.model';
-import { LoginService } from '../../services/login.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-verify-register',
@@ -17,7 +16,7 @@ export class VerifyRegisterComponent implements OnInit {
   isLoadingResults = false;
 
   constructor(
-    private loginService: LoginService,
+    private authService: AuthService,
     private router: Router,
     private origin: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -45,7 +44,7 @@ export class VerifyRegisterComponent implements OnInit {
       values.token
     );
     
-    this.loginService.verify(verifyModel)
+    this.authService.verify(verifyModel)
       .subscribe(() => {
         this.isLoadingResults = false;
         this.router.navigate(['/login']);
@@ -59,7 +58,7 @@ export class VerifyRegisterComponent implements OnInit {
     this.isLoadingResults = true;
     let values = this.verifyForm.value;
 
-    this.loginService.resendVerificationEmail(values.email)
+    this.authService.resendVerificationEmail(values.email)
     .subscribe(() => {
       this.isLoadingResults = false;
     }, error => {
