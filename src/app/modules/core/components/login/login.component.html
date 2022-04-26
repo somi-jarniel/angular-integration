@@ -5,10 +5,11 @@
 
   <!-- Email -->
   <input type="email" formControlName="username" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail"
-    [ngStyle]="{'border-color' : loginForm.controls['username']?.invalid && loginForm.controls['username']?.touched ? '#df4759' : null}" >
+    [ngClass]="{'border border-danger' : loginForm.controls['username']?.invalid && loginForm.controls['username']?.touched}" >
 
   <!-- Password -->
-  <input type="password"  formControlName="password"   id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+  <input type="password"  formControlName="password"   id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password"
+    [ngClass]="{'border border-danger' : loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched}" >
 
   <!-- Sign in button -->
   <button type="submit" [disabled]="!loginForm.valid" class="my-4" type="submit">Sign in</button>

@@ -27,6 +27,8 @@ export class VerifyRegisterComponent implements OnInit {
     this.origin.queryParams.subscribe(res => {
       if(res.email) {
         email = res.email;
+      } else {
+        this.router.navigate(['/login']);
       }
     });
     this.verifyForm = this.formBuilder.group({

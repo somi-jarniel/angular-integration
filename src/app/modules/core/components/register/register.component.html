@@ -1,29 +1,35 @@
-<!-- Default form login -->
+<!-- Default form register -->
 <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
 
     <p class="h4 mb-4">Register</p>
 
     <!-- First Name -->
-    <input type="text" formControlName="first_name" id="defaultRegisterFormFirstName" class="form-control mb-4" placeholder="First Name">
+    <input type="text" formControlName="first_name" id="defaultRegisterFormFirstName" class="form-control mb-4" placeholder="First Name"
+      [ngClass]="{'border border-danger' : registerForm.controls['first_name']?.invalid && registerForm.controls['first_name']?.touched}">
 
     <!-- Last Name -->
-    <input type="text" formControlName="last_name" id="defaultRegisterFormLastName" class="form-control mb-4" placeholder="Last Name">
+    <input type="text" formControlName="last_name" id="defaultRegisterFormLastName" class="form-control mb-4" placeholder="Last Name"
+      [ngClass]="{'border border-danger' : registerForm.controls['last_name']?.invalid && registerForm.controls['last_name']?.touched}">
   
     <!-- Mobile No -->
-    <input type="text" formControlName="mobile_no" id="defaultRegisterFormMobileNo" class="form-control mb-4" placeholder="Mobile No">
+    <input type="text" formControlName="mobile_no" id="defaultRegisterFormMobileNo" class="form-control mb-4" placeholder="Mobile No"
+      [ngClass]="{'border border-danger' : registerForm.controls['mobile_no']?.invalid && registerForm.controls['mobile_no']?.touched}">
 
     <!-- Username -->
-    <input type="text" formControlName="username" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+    <input type="text" formControlName="username" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username"
+      [ngClass]="{'border border-danger' : registerForm.controls['username']?.invalid && registerForm.controls['username']?.touched}">
 
     <!-- Email -->
-    <input type="email" formControlName="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input type="email" formControlName="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"
+    [ngClass]="{'border border-danger' : registerForm.controls['email']?.invalid && registerForm.controls['email']?.touched}">
   
     <!-- Password -->
-    <input type="password" formControlName="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password">
+    <input type="password" formControlName="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password"
+      [ngClass]="{'border border-danger' : registerForm.controls['password']?.invalid && registerForm.controls['password']?.touched}">
   
     <!-- Register button -->
     <button type="submit" [disabled]="!registerForm.valid" class="my-4" type="submit">Register</button>
   
   </form>
-  <!-- Default form login -->
+  <!-- Default form register -->
   

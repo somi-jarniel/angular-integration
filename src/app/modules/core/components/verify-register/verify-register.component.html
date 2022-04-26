@@ -1,4 +1,4 @@
-<!-- Default form login -->
+<!-- Default form verification -->
 <form [formGroup]="verifyForm" (ngSubmit)="onFormSubmit()">
 
     <p class="h4 mb-4">Verify Registration</p>
@@ -6,16 +6,17 @@
     <!-- Email -->
     <input type="email" formControlName="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" readonly>
   
-    <!-- Password -->
-    <input type="text"  formControlName="token"   id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Verification Code">
-  
+    <!-- Token -->
+    <input type="text"  formControlName="token"   id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Verification Code"
+      [ngClass]="{'border border-danger' : verifyForm.controls['token']?.invalid && verifyForm.controls['token']?.touched}">
+    
     <div>
-      Did not receive any emai? Request another code <a style="color: #7c69ef" (click)="resendVerificationEmail()">here.</a>
+      Did not receive any emai? Request another code <a class="text-primary" (click)="resendVerificationEmail()">here.</a>
     </div>
 
-    <!-- Sign in button -->
+    <!-- Verify button -->
     <button type="submit" [disabled]="!verifyForm.valid" class="my-4" type="submit">Verify</button>
   
   </form>
-  <!-- Default form login -->
+  <!-- Default form verification -->
   
