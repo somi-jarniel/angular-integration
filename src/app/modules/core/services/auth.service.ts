@@ -44,15 +44,15 @@ export class AuthService {
 
   constructor(private http:HttpClient, private tokenService:TokenService, private cipherService: CipherService) {}
 
-  guestToken(): Observable<any> {
+  getOauth(username: string, password: string, headers: object): Observable<any> {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
     const body = new HttpParams({ encoder: new HttpEncoderService() })
-      .set('username', GENERIC_USERNAME)
-      .set('password', GENERIC_PASSWORD)
+      .set('username', username)
+      .set('password', password)
       .set('grant_type', 'password')
 
-    return this.http.post<any>(API_URL+ 'oauth/token', body, HTTP_OPTIONS)
+    return this.http.post<any>(API_URL+ 'oauth/token', body, headers)
       .pipe(tap(res=>{
           this.tokenService.saveToken(res.access_token);
           this.tokenService.saveTokenType(res.token_type);
@@ -83,7 +83,7 @@ export class AuthService {
       'password': this.cipherService.encrypt(loginModel.password)
     };
 
-    const bearer = this.guestToken();
+    const bearer = this.getOauth(body.username, body.password, HTTP_OPTIONS);
 
     return bearer.pipe(mergeMap(res => {
       return this.http.post<any>(API_URL + 'api/client/login', body, {})
@@ -106,7 +106,7 @@ export class AuthService {
       'password': this.cipherService.encrypt(registerModel.password)
     };
 
-    const bearer = this.guestToken();
+    const bearer = this.getOauth(GENERIC_USERNAME, GENERIC_PASSWORD, HTTP_OPTIONS);
 
     return bearer.pipe(mergeMap(res => {
       return this.http.post<any>(API_URL + 'api/client/register', body, {})
@@ -125,7 +125,7 @@ export class AuthService {
       token: this.cipherService.encrypt(verifyRegistrationModel.token)
     };
 
-    const bearer = this.guestToken();
+    const bearer = this.getOauth(GENERIC_USERNAME, GENERIC_PASSWORD, HTTP_OPTIONS);
 
     return bearer.pipe(mergeMap(res => {
       return this.http.post<any>(API_URL + 'api/client/verify', body, {})
@@ -139,7 +139,7 @@ export class AuthService {
   }
 
   resendVerificationEmail(email: string): Observable<any> {
-    const bearer = this.guestToken();
+    const bearer = this.getOauth(GENERIC_USERNAME, GENERIC_PASSWORD, HTTP_OPTIONS);
 
     return bearer.pipe(mergeMap(res => {
       return this.http.post<any>(API_URL + 'api/client/verify/token/generate', {

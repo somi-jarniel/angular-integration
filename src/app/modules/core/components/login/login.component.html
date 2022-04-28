@@ -4,7 +4,7 @@
   <p class="h4 mb-4">Sign in</p>
 
   <!-- Email -->
-  <input type="email" formControlName="username" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail"
+  <input type="text" formControlName="username" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Username"
     [ngClass]="{'border border-danger' : loginForm.controls['username']?.invalid && loginForm.controls['username']?.touched}" >
 
   <!-- Password -->
