@@ -1,22 +1,22 @@
-<!-- Default form verification -->
-<form [formGroup]="verifyForm" (ngSubmit)="onFormSubmit()">
-
-    <p class="h4 mb-4">Verify Registration</p>
-  
-    <!-- Email -->
-    <input type="email" formControlName="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" readonly>
-  
-    <!-- Token -->
-    <input type="text"  formControlName="token"   id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Verification Code"
-      [ngClass]="{'border border-danger' : verifyForm.controls['token']?.invalid && verifyForm.controls['token']?.touched}">
-    
-    <div>
-      Did not receive any emai? Request another code <a class="text-primary" (click)="resendVerificationEmail()">here.</a>
+<div class="container h-100" style="min-height: 100vh; display:flex; align-items: center">
+  <div class="card bg-default mb-3 py-3 px-4 mx-auto w-50 h-50" style="max-height: 450px; max-width: 450px;">
+    <div class="card-body">
+      <p class="h3 mb-4 text-primary">Verify Registration</p>
+      <form [formGroup]="verifyForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <input type="email" formControlName="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail"
+          [ngClass]="{'border border-danger' : verifyForm.controls['email']?.invalid && verifyForm.controls['email']?.touched}">
+        </div>
+        <div class="form-group">
+          <input type="text"  formControlName="token"   id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Verification Code"
+            [ngClass]="{'border border-danger' : verifyForm.controls['token']?.invalid && verifyForm.controls['token']?.touched}">
+        </div>
+        <div class="footer">
+          <button type="submit" [disabled]="!verifyForm.valid" class="btn btn-primary mt-2 float-right" type="submit">Verify</button>
+          <small class="pr-3">Did not receive any emai? Request another code <a class="text-primary" (click)="resendVerificationEmail()">here.</a></small>
+        </div>
+      </form>
     </div>
-
-    <!-- Verify button -->
-    <button type="submit" [disabled]="!verifyForm.valid" class="my-4" type="submit">Verify</button>
-  
-  </form>
-  <!-- Default form verification -->
+  </div>
+</div>
   

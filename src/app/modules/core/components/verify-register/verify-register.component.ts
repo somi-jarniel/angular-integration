@@ -23,16 +23,8 @@ export class VerifyRegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let email = null;
-    this.origin.queryParams.subscribe(res => {
-      if(res.email) {
-        email = res.email;
-      } else {
-        this.router.navigate(['/login']);
-      }
-    });
     this.verifyForm = this.formBuilder.group({
-      'email': [email, [Validators.required, Validators.email]],
+      'email': [null, [Validators.required, Validators.email]],
       'token': [null, Validators.required]
     });
   }
