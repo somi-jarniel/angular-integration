@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CoreModule} from "./modules/core/core.module";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './modules/core/interceptors/auth.interceptor';
-
+import { WorkspaceRoutingModule } from './modules/core/components/workspace/workspace.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { AuthInterceptor } from './modules/core/interceptors/auth.interceptor';
     AppRoutingModule,
     FontAwesomeModule,
     CoreModule,
-    NgbModule
+    NgbModule,
+    WorkspaceRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

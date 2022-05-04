@@ -1,0 +1,11 @@
+<form [formGroup]="workspaceForm" (ngSubmit)="onFormSubmit()">
+
+    <p class="h4 mb-4">Workspace</p>
+  
+    <input type="text" formControlName="name" id="defaultLoginFormName" class="form-control mb-4" placeholder="Name">
+  
+    <input type="text"  formControlName="description"   id="defaultLoginFormDesctiprtion" class="form-control mb-4" placeholder="Description">
+  
+    <button type="submit" [disabled]="!workspaceForm.valid" class="my-4" type="submit">Submit</button>
+  
+  </form>

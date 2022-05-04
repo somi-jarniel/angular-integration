@@ -10,12 +10,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'verify-registration', component: VerifyRegisterComponent },
-  { path: '', canActivate: [AuthGuard], component: MainComponent,
-      children: [
-        { path: '', redirectTo: 'workspace', pathMatch: 'full' },
-        { path: 'workspace', loadChildren: () => import('./modules/workspace/workspace.module').then(m => m.WorkspaceModule) },
-        ]
-  },
+  // { path: '', canActivate: [AuthGuard], component: MainComponent,
+  //     children: [
+  //       { path: '', redirectTo: 'workspace', pathMatch: 'full' },
+  //       { path: 'workspace', loadChildren: () => import('./modules/workspace/workspace.module').then(m => m.WorkspaceModule) },
+  //       ]
+  // },
 ];
 
 @NgModule({
