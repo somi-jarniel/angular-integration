@@ -1,16 +1,21 @@
-<!-- Default form login -->
-<form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
-
-  <p class="h4 mb-4">Sign in</p>
-
-  <!-- Email -->
-  <input type="email" formControlName="username" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-  <!-- Password -->
-  <input type="password"  formControlName="password"   id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-  <!-- Sign in button -->
-  <button type="submit" [disabled]="!loginForm.valid" class="my-4" type="submit">Sign in</button>
-
-</form>
-<!-- Default form login -->
+<div class="container h-100" style="min-height: 100vh; display:flex; align-items: center">
+  <div class="card bg-default mb-3 py-3 px-4 mx-auto w-50 h-50" style="max-height: 380px; max-width: 380px;">
+    <div class="card-body">
+      <p class="h3 mb-4 text-primary">Sign in</p>
+      <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <input type="text" formControlName="username" id="defaultLoginFormEmail" class="form-control" placeholder="Username"
+          [ngClass]="{'border border-danger' : loginForm.controls['username']?.invalid && loginForm.controls['username']?.touched}" >
+        </div>
+        <div class="form-group">
+          <input type="password"  formControlName="password"   id="defaultLoginFormPassword" class="form-control" placeholder="Password"
+          [ngClass]="{'border border-danger' : loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched}" >
+        </div>
+        <div class="footer">
+          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary mt-2 float-right" type="submit">Sign in</button>
+          <small class="pr-3">Don't have an account? <a [routerLink]="['/register']">Register here.</a></small>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

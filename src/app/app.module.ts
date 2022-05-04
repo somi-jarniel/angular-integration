@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CoreModule} from "./modules/core/core.module";
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './modules/core/interceptors/auth.interceptor';
+import { WorkspaceRoutingModule } from './modules/core/components/workspace/workspace.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,12 @@ import {CoreModule} from "./modules/core/core.module";
     AppRoutingModule,
     FontAwesomeModule,
     CoreModule,
-    NgbModule
+    NgbModule,
+    WorkspaceRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

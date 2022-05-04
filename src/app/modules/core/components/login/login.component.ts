@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {LoginModel} from "../../../shared/models/login.model";
-import {ApiService} from "../../services/api.service";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +17,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private apiService: ApiService,
     private router: Router,
     private formBuilder: FormBuilder) {
   }
@@ -35,12 +33,11 @@ export class LoginComponent implements OnInit {
     let values = this.loginForm.value;
 
     let loginModel: LoginModel = new LoginModel(values.username, values.password);
+    
     this.authService.login(loginModel)
       .subscribe(() => {
-
-
         this.isLoadingResults = false;
-        this.router.navigate(['/workspace']).then(_ => console.log('logged in successfully'));
+        this.router.navigate(['']).then(_ => console.log('logged in successfully'));
 
       }, error => {
         console.log(error);

@@ -10,8 +10,8 @@ import { MainComponent } from './components/main/main.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
-
+import { RegisterComponent } from './components/register/register.component';
+import { VerifyRegisterComponent } from './components/verify-register/verify-register.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     BreadcrumbsComponent,
     LoginComponent,
     MainComponent,
+    RegisterComponent,
+    VerifyRegisterComponent
   ],
   imports: [
     CommonModule,
